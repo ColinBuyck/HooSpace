@@ -6,6 +6,38 @@ const CONTENT = [
   {
     id: 1,
     name: "Aldermann",
+    maxCap: 500,
+    currentCap: 80,
+  },
+  {
+    id:2,
+    name: "Brown",
+    maxCap: 500,
+    currentCap: 80,
+  },
+  {
+    id:3,
+    name: "Clemons",
+    maxCap: 500,
+    currentCap: 80,
+  },
+  {
+    id:4,
+    name: "1515",
+    maxCap: 100,
+    currentCap: 80,
+  },
+  {
+    id:5,
+    name: "Newcomb",
+    maxCap: 700,
+    currentCap: 80,
+  },
+  {
+    id:5,
+    name: "Rotunda",
+    maxCap: 300,
+    currentCap: 80,
   }
 ]
 
