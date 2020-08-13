@@ -1,5 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { List } from 'react-native-paper';
+
+const CONTENT = [
+  {
+    id: 1,
+    name: "Aldermann",
+  }
+]
 
 export default function App() {
   return (
@@ -15,9 +23,9 @@ export default function App() {
       <View style={classes.seperator}>
       </View>  
       <View style={classes.list}>
-        <Text>
-          Hello Colin
-        </Text>
+        <List.AccordionGroup>
+          
+        </List.AccordionGroup>
       </View>
       <View style={classes.seperator}>
       </View>
