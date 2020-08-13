@@ -16,7 +16,7 @@ export default function App() {
       </View>  
       <View style={classes.list}>
         <Text>
-          Hello George
+          Hello Colin
         </Text>
       </View>
       <View style={classes.seperator}>
