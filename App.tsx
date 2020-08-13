@@ -10,31 +10,31 @@ const CONTENT = [
     currentCap: 80,
   },
   {
-    id:2,
+    id: 2,
     name: "Brown",
     maxCap: 500,
     currentCap: 80,
   },
   {
-    id:3,
+    id: 3,
     name: "Clemons",
     maxCap: 500,
     currentCap: 80,
   },
   {
-    id:4,
+    id: 4,
     name: "1515",
     maxCap: 100,
     currentCap: 80,
   },
   {
-    id:5,
+    id: 5,
     name: "Newcomb",
     maxCap: 700,
     currentCap: 80,
   },
   {
-    id:5,
+    id: 6,
     name: "Rotunda",
     maxCap: 300,
     currentCap: 80,
@@ -42,6 +42,16 @@ const CONTENT = [
 ]
 
 export default function App() {
+  const locationList = () => {
+    return CONTENT.map((item, idx) => {
+      return (
+        <List.Accordion title={item.name} id={item.id}>
+          <List.Item title={item.currentCap + "/" + item.maxCap}/>
+        </List.Accordion>
+      )
+    })
+  }
+
   return (
     <View style={classes.container}>
       <View style={classes.header}>
@@ -56,7 +66,7 @@ export default function App() {
       </View>  
       <View style={classes.list}>
         <List.AccordionGroup>
-          
+          {locationList()}
         </List.AccordionGroup>
       </View>
       <View style={classes.seperator}>
@@ -103,7 +113,6 @@ const classes = StyleSheet.create({
     height: '55%',
     width: '95%',
     borderRadius: 20,
-    backgroundColor: '#111111',
     alignContent: 'center',
     justifyContent: 'center',
   },
