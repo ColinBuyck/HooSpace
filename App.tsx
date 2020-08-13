@@ -41,6 +41,8 @@ const classes = StyleSheet.create({
   icon: {
     textAlign: 'center',
     textAlignVertical: 'bottom',
+    position: 'absolute',
+    bottom: 4,
     color: '#FFF'
   },
   header: {
