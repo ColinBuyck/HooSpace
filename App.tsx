@@ -13,7 +13,6 @@ export default function App() {
         <Image style={classes.img} source={require('./map.png')}></Image>
       </View>
       <View style={classes.seperator}>
-        
       </View>  
       <View style={classes.list}>
         <Text>
@@ -21,7 +20,6 @@ export default function App() {
         </Text>
       </View>
       <View style={classes.seperator}>
-        
       </View>
     </View>
   );
