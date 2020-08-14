@@ -46,7 +46,7 @@ export default function App() {
   const locationList = () => {
     return CONTENT.map((item, idx) => {
       return (
-        <List.Accordion title={item.name} id={item.id}>
+        <List.Accordion title={item.name} key={item.id} id={item.id}>
           <Text style= {classes.infoHeadings}>
             Current Capacity: 
           </Text>
@@ -58,6 +58,8 @@ export default function App() {
 
   return (
     <View style={classes.container}>
+      <View style={classes.notchSeperator}>
+      </View>
       <View style={classes.header}>
         <Image style={classes.sabreLogo} source={require('./uvaLogo.png')} ></Image>
         <Text style={classes.iconText}>
@@ -102,7 +104,7 @@ const classes = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    height: '10%',
+    height: '7%',
     width: '100%'
   },
   //Really confused why the images seem to go out of the 
@@ -113,6 +115,9 @@ const classes = StyleSheet.create({
   },
   seperator: {
     height: '1%'
+  },
+  notchSeperator: {
+    height: '5%'
   },
   mapContainer: {
     height: '34%',
