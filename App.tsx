@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { List } from 'react-native-paper';
+import {StatusBar} from 'expo-status-bar';
 
 const CONTENT = [
   {
@@ -82,6 +83,7 @@ export default function App() {
       </View>
       <View style={classes.seperator}>
       </View>
+      <StatusBar style="light" />
     </View>
   );
 }
