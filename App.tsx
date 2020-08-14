@@ -46,6 +46,9 @@ export default function App() {
     return CONTENT.map((item, idx) => {
       return (
         <List.Accordion title={item.name} id={item.id}>
+          <Text style= {classes.infoHeadings}>
+            Current Capacity: 
+          </Text>
           <List.Item title={item.currentCap + "/" + item.maxCap}/>
         </List.Accordion>
       )
@@ -55,15 +58,17 @@ export default function App() {
   return (
     <View style={classes.container}>
       <View style={classes.header}>
-        <Text style={classes.icon}>
+        <Image style={classes.sabreLogo} source={require('./uvaLogo.png')} ></Image>
+        <Text style={classes.iconText}>
           CavSpace
         </Text>
+        <Image style={classes.sabreLogo} source={require('./uvaLogo.png')} ></Image>
       </View>
-      <View style={classes.map}>
-        <Image style={classes.img} source={require('./map.png')}></Image>
+      <View style={classes.mapContainer}>
+        <Image style={classes.map} source={require('./map.png')}></Image>
       </View>
       <View style={classes.seperator}>
-      </View>  
+      </View> 
       <View style={classes.list}>
         <List.AccordionGroup>
           {locationList()}
@@ -77,43 +82,49 @@ export default function App() {
 
 const classes = StyleSheet.create({
   container: {
-    justifyContent: 'center',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundColor: '#202741',
   },
-  img: {
+  map: {
     width: '100%',
     height: '100%',
     borderRadius: 20,
   },
-  icon: {
-    textAlign: 'center',
-    textAlignVertical: 'bottom',
-    position: 'absolute',
-    bottom: 4,
-    color: '#FFF'
+  iconText: {
+    fontSize: 25,
+    fontStyle: 'italic',
+    color: 'white'
   },
   header: {
-    justifyContent: 'center',
+    flexDirection: 'row',
     alignItems: 'center',
-    height: '7%'
+    justifyContent: 'space-around',
+    height: '10%',
+    width: '100%'
+  },
+  //Really confused why the images seem to go out of the 
+  //container with ie. alignSelf: 'flex-start'
+  sabreLogo: {
+    resizeMode: "contain" ,
+    width: '10%'
   },
   seperator: {
-    height: '2%'
+    height: '1%'
   },
-  map: {
+  mapContainer: {
     height: '34%',
     width: '95%',
     borderRadius: 20,
-    backgroundColor: '#FFF',
-    alignContent: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'white',
   },
   list: {
-    height: '55%',
+    height: '54%',
     width: '95%',
-    borderRadius: 20,
-    alignContent: 'center',
-    justifyContent: 'center',
+  },
+  infoHeadings: {
+    fontSize: 15,
+    color: 'white'
   },
 });
