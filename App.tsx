@@ -46,11 +46,14 @@ export default function App() {
   const locationList = () => {
     return CONTENT.map((item, idx) => {
       return (
-        <List.Accordion title={item.name} key={item.id} id={item.id}>
-          <Text style= {classes.infoHeadings}>
-            Current Capacity: 
-          </Text>
-          <List.Item title={item.currentCap + "/" + item.maxCap}/>
+        <List.Accordion title={item.name} 
+                        key={item.id} 
+                        id={item.id} 
+                        style={classes.listAccordion} 
+                        theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 }}}
+                        >
+          <List.Item title={"Current Capacity: " + item.currentCap + "/" + item.maxCap} style={classes.listItem}>  
+          </List.Item>
         </List.Accordion>
       )
     })
@@ -128,6 +131,20 @@ const classes = StyleSheet.create({
   list: {
     height: '54%',
     width: '95%',
+  },
+  listAccordion: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    marginTop: 4,
+  },
+  listItem: {
+    backgroundColor: 'white',
+    zIndex: -1,
+    marginTop: -10,
+    borderRadius: 10,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    marginBottom: 1,
   },
   infoHeadings: {
     fontSize: 15,
