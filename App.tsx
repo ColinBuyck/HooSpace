@@ -42,6 +42,7 @@ const CONTENT = [
 ]
 
 export default function App() {
+
   const locationList = () => {
     return CONTENT.map((item, idx) => {
       return (
