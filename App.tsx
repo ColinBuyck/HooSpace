@@ -49,7 +49,7 @@ export default function App() {
         <List.Accordion title={item.name} 
                         key={item.id} 
                         id={item.id} 
-                        style={classes.listAccordion} 
+                        style={classes.listAccordion}
                         theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 }}}
                         >
           <List.Item title={"Current Capacity: " + item.currentCap + "/" + item.maxCap} style={classes.listItem}>  
@@ -134,6 +134,7 @@ const classes = StyleSheet.create({
   },
   listAccordion: {
     backgroundColor: 'white',
+    backfaceVisibility: 'hidden',
     borderRadius: 10,
     marginTop: 4,
   },
