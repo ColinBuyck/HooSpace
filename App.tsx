@@ -6,7 +6,7 @@ import {StatusBar} from 'expo-status-bar';
 const CONTENT = [
   {
     id: 1,
-    name: "Aldermann",
+    name: "Alderman",
     maxCap: 500,
     currentCap: 80,
   },
