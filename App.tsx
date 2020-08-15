@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { List } from 'react-native-paper';
 import {StatusBar} from 'expo-status-bar';
 
@@ -39,6 +39,42 @@ const CONTENT = [
     name: "Rotunda",
     maxCap: 300,
     currentCap: 80,
+  },
+  {
+    id: 7,
+    name: "Rice Hall",
+    maxCap: 500,
+    currentCap: 80,
+  },
+  {
+    id: 8,
+    name: "Music Library",
+    maxCap: 500,
+    currentCap: 80,
+  },
+  {
+    id: 9,
+    name: "Fine Arts Library",
+    maxCap: 500,
+    currentCap: 80,
+  },
+  {
+    id: 10,
+    name: "Grit Coffee",
+    maxCap: 100,
+    currentCap: 80,
+  },
+  {
+    id: 11,
+    name: "New Cabell Hall",
+    maxCap: 700,
+    currentCap: 80,
+  },
+  {
+    id: 12,
+    name: "Starbucks",
+    maxCap: 300,
+    currentCap: 80,
   }
 ]
 
@@ -76,11 +112,11 @@ export default function App() {
       </View>
       <View style={classes.seperator}>
       </View> 
-      <View style={classes.list}>
-        <List.AccordionGroup>
-          {locationList()}
-        </List.AccordionGroup>
-      </View>
+      <ScrollView style={classes.list}>
+          <List.AccordionGroup>
+            {locationList()}
+          </List.AccordionGroup>
+      </ScrollView>
       <View style={classes.seperator}>
       </View>
       <StatusBar style="light" />
@@ -148,9 +184,5 @@ const classes = StyleSheet.create({
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
     marginBottom: 1,
-  },
-  infoHeadings: {
-    fontSize: 15,
-    color: 'white'
-  },
+  }
 });
