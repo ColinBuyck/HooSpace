@@ -7,74 +7,74 @@ const CONTENT = [
   {
     id: 1,
     name: "Alderman",
-    maxCap: 500,
-    currentCap: 80,
+    capacity: 500,
+    occupancy: 80,
   },
   {
     id: 2,
     name: "Brown",
-    maxCap: 500,
-    currentCap: 80,
+    capacity: 500,
+    occupancy: 80,
   },
   {
     id: 3,
     name: "Clemons",
-    maxCap: 500,
-    currentCap: 80,
+    capacity: 500,
+    occupancy: 80,
   },
   {
     id: 4,
     name: "1515",
-    maxCap: 100,
-    currentCap: 80,
+    capacity: 100,
+    occupancy: 80,
   },
   {
     id: 5,
     name: "Newcomb",
-    maxCap: 700,
-    currentCap: 80,
+    capacity: 700,
+    occupancy: 80,
   },
   {
     id: 6,
     name: "Rotunda",
-    maxCap: 300,
-    currentCap: 80,
+    capacity: 300,
+    occupancy: 80,
   },
   {
     id: 7,
     name: "Rice Hall",
-    maxCap: 500,
-    currentCap: 80,
+    capacity: 500,
+    occupancy: 80,
   },
   {
     id: 8,
     name: "Music Library",
-    maxCap: 500,
-    currentCap: 80,
+    capacity: 500,
+    occupancy: 80,
   },
   {
     id: 9,
     name: "Fine Arts Library",
-    maxCap: 500,
-    currentCap: 80,
+    capacity: 500,
+    occupancy: 80,
   },
   {
     id: 10,
     name: "Grit Coffee",
-    maxCap: 100,
-    currentCap: 80,
+    capacity: 100,
+    occupancy: 80,
   },
   {
     id: 11,
     name: "New Cabell Hall",
-    maxCap: 700,
-    currentCap: 80,
+    capacity: 700,
+    occupancy: 80,
   },
   {
     id: 12,
     name: "Starbucks",
-    maxCap: 300,
-    currentCap: 80,
+    capacity: 300,
+    occupancy: 80,
   }
 ]
 
@@ -89,7 +89,7 @@ export default function App() {
                         style={classes.listAccordion}
                         theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 }}}
                         >
-          <List.Item title={"Current Capacity: " + item.currentCap + "/" + item.maxCap} style={classes.listItem}>  
+          <List.Item title={"Current Capacity: " + item.occupancy + "/" + item.capacity} style={classes.listItem}>  
           </List.Item>
         </List.Accordion>
       )
