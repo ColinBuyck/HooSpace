@@ -63,4 +63,3 @@ export const Styles = StyleSheet.create({
       marginBottom: 1,
     }
   });
-  
