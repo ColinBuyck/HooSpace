@@ -1,0 +1,1 @@
+//Occupancy percentage graphic to be used on ccordion headers
