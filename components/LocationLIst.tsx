@@ -19,7 +19,7 @@ const listLocations = () => {
     })
 }
 
-export default function LocationList() {
+export default function LocationList(idk: number) {
     return (
         <List.AccordionGroup>
             {listLocations()}
