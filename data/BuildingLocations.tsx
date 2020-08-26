@@ -12,13 +12,13 @@ export const BuildingLocations: BuildingLocation[] = [
     id: 2,
     name: "Brown",
     capacity: 500,
-    occupancy: 80,
+    occupancy: 180,
   },
   {
     id: 3,
     name: "Clemons",
     capacity: 500,
-    occupancy: 80,
+    occupancy: 50,
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ export const BuildingLocations: BuildingLocation[] = [
     id: 5,
     name: "Newcomb",
     capacity: 700,
-    occupancy: 80,
+    occupancy: 400,
   },
   {
     id: 6,

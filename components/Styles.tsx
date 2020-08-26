@@ -47,11 +47,14 @@ export const Styles = StyleSheet.create({
       height: '54%',
       width: '95%',
     },
+    listAccordionTitle: {
+      fontSize: 20,
+      fontStyle: 'italic' 
+    },
     listAccordion: {
       backgroundColor: 'white',
       backfaceVisibility: 'hidden',
       borderRadius: 10,
-      marginTop: 4,
     },
     listItem: {
       backgroundColor: 'white',
@@ -61,6 +64,11 @@ export const Styles = StyleSheet.create({
       borderTopRightRadius: 0,
       borderTopLeftRadius: 0,
       marginBottom: 1,
+    },
+    accordionContainer: {
+      backgroundColor: 'white',
+      borderRadius: 10,
+      marginVertical: 4
     }
   });
   
