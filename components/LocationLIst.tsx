@@ -9,7 +9,7 @@ import {progressGraphicColor} from './ProgressGraphicColor'
 const listLocations = () => {
     return BuildingLocations.map((item, idx) => {
         return (
-            <View style = {Styles.accordionContainer}>
+            <View style = {Styles.accordionContainer} key={idx}>
                 <List.Accordion title={item.name}
                     titleStyle= {Styles.listAccordionTitle}
                     key={item.id}
