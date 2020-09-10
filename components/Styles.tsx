@@ -44,12 +44,13 @@ export const Styles = StyleSheet.create({
       backgroundColor: 'white',
     },
     list: {
-      height: '54%',
+      height: '47%',
       width: '95%',
     },
     listAccordionTitle: {
-      fontSize: 20,
-      fontStyle: 'italic' 
+      fontSize: 22,
+      fontStyle: 'italic' ,
+      fontWeight: "400"
     },
     listAccordion: {
       backgroundColor: 'white',
@@ -69,6 +70,14 @@ export const Styles = StyleSheet.create({
       backgroundColor: 'white',
       borderRadius: 10,
       marginVertical: 4
+    },
+    listSwitch: {
+      height: '6%',
+      width: '95%',
+    },
+    minWait: {
+      backgroundColor: "#d4d4d4",
+      borderColor: "black"
     }
   });
   

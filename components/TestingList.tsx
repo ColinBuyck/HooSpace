@@ -1,12 +1,12 @@
-import { List } from "react-native-paper"
+import { List, Avatar} from "react-native-paper"
 import { Styles } from "./Styles"
 import ProgressCircle from "react-native-progress-circle"
 import React from 'react'
 import { Text, View } from 'react-native'
 import {progressGraphicColor} from './ProgressGraphicColor'
 
-const LocationList = ({BuildingLocations}: any) => {
-    return BuildingLocations.map((item: any, idx: number) => {
+const TestingList = ({TestingLocations}: any) => {
+    return TestingLocations.map((item: any, idx: number) => {
         return (
             <View style = {Styles.accordionContainer} key={idx}>
                 <List.Accordion title={item.name}
@@ -17,22 +17,23 @@ const LocationList = ({BuildingLocations}: any) => {
                     theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
                     left = {props => 
                         <ProgressCircle
-                            percent={(item.occupancy/item.capacity)*100}
+                            percent={(item.wait/60)*100}
                             radius={34}
-                            borderWidth={7}
-                            color = {progressGraphicColor(item.occupancy, item.capacity)}
-                            shadowColor = "#A9A9A9"
+                            borderWidth={6}
+                            color = {progressGraphicColor(item.wait, 60)}
                         >
-                            <Text style={{ fontSize: 18, fontWeight: "600"}}>{Math.round((item.occupancy/item.capacity)*100)}%</Text>
-                            <Text style={{ fontSize: 12 }}>full</Text>
+                            <Text style={{ fontSize: 18 , fontWeight: "600"}}>{item.wait}'</Text>
+                            <Text style={{ fontSize: 12 }}> wait</Text>
+
                         </ProgressCircle>}
                 >
-                    <List.Item title={"Current Capacity: " + item.occupancy + "/" + item.capacity} style={Styles.listItem}>
+                    <List.Item title={"Approximate Line Length: " + item.lineLength + " people"} style={Styles.listItem}>
+                    </List.Item>
+                    <List.Item title={"Current Wait: " + item.wait + " minutes"} style={Styles.listItem}>
                     </List.Item>
                 </List.Accordion>
             </View>
         )
     })
 }
-
-export default LocationList
+export default TestingList
