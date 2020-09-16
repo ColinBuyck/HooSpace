@@ -69,6 +69,11 @@ export const Styles = StyleSheet.create({
       backgroundColor: 'white',
       borderRadius: 10,
       marginVertical: 4
+    },
+    insidemap: {
+      borderRadius: 20,
+      height: '100%',
+      width: '100%'
     }
   });
   

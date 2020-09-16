@@ -9,7 +9,7 @@ import { PullLocations } from "../data/PullLocations"
 import { Location } from "../interfaces/Location"
 
 const listLocations = () => {
-    const [data, setData] = React.useState<Array<Location>>();
+    /*const [data, setData] = React.useState<Array<Location>>();
     setData(PullLocations());
 
     if(data){
@@ -39,8 +39,8 @@ const listLocations = () => {
         )
     })
     }
-
-    /*return BuildingLocations.map((item, idx) => {
+*/
+    return BuildingLocations.map((item, idx) => {
         return (
             <View style = {Styles.accordionContainer} key={idx}>
                 <List.Accordion title={item.name}
@@ -64,7 +64,7 @@ const listLocations = () => {
                 </List.Accordion>
             </View>
         )
-    })*/
+    })
 }
 
 export default function LocationList() {
