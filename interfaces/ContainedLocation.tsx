@@ -1,7 +1,7 @@
-import { Count } from "./Count";
+import { Value } from "./Value";
 
 export interface ContainedLocation {
     name: String;
-    noMaskCount: Count;
-    occupancy: Count;
+    noMaskCount: Value;
+    occupancy: Value;
 }

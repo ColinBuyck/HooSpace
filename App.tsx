@@ -14,7 +14,7 @@ export default function App() {
       <View style={Styles.header}>
         <Image style={Styles.sabreLogo} source={require('./assets/uvaLogo.png')} ></Image>
         <Text style={Styles.iconText}>
-          CavSpace
+          HooSpace
         </Text>
         <Image style={Styles.sabreLogo} source={require('./assets/uvaLogo.png')} ></Image>
       </View>
