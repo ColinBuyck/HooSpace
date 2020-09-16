@@ -1,12 +1,12 @@
-import { Count } from "./Count";
+import { Value } from "./Value";
+import { Geo } from "./Geo";
 import { ContainedLocation } from "./ContainedLocation";
 
 export interface Location {
     name: String;
-    latitude: number;
-    longitude: number;
+    geo: Geo;
     isOpenNow: boolean;
-    maximumAtendeeCapacity: number;
-    occupancy: Count;
-    noMaskCount: Count;
+    maximumAttendeeCapacity: number;
+    occupancy: Value;
+    noMaskCount: Value;
 }
