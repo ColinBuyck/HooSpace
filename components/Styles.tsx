@@ -72,6 +72,7 @@ export const Styles = StyleSheet.create({
     },
     insidemap: {
       borderRadius: 20,
+      overflow: 'hidden',
       height: '100%',
       width: '100%'
     }

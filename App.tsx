@@ -4,10 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Image, ScrollView, Text, View } from 'react-native';
 import LocationList from './components/LocationLIst';
 import { Styles } from './components/Styles';
-//import { Map } from './components/Map';
-
-
-//<Image style={Styles.map} source={require('./assets/map.png')}></Image> 
+import { Map } from './components/Map';
 
 export default class App extends React.Component {
   render() {
@@ -18,24 +15,12 @@ export default class App extends React.Component {
         <View style={Styles.header}>
           <Image style={Styles.sabreLogo} source={require('./assets/uvaLogo.png')} ></Image>
           <Text style={Styles.iconText}>
-            CavSpace
+            HooSpace
           </Text>
           <Image style={Styles.sabreLogo} source={require('./assets/uvaLogo.png')} ></Image>
         </View>
         <View style={Styles.mapContainer}>
-        <View style = { Styles.insidemap }>
-           <MapView
-              style={{
-                flex: 1
-              }}
-              initialRegion={{
-                latitude: 38.0336,
-                longitude: -78.5080,
-                latitudeDelta: 0.0322,
-                longitudeDelta: 0.0011
-              }}
-            />
-          </View>
+          <Map/>
         </View>
         <View style={Styles.seperator}>
         </View>
