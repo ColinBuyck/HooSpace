@@ -6,7 +6,7 @@ import MapView from 'react-native-maps';
 
 export const Map = () => {
   return (
-    <View style = { Styles.insidemap }>
+    <View style={Styles.insidemap}>
       <MapView
         style={{
           flex: 1

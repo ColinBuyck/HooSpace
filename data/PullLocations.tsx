@@ -1,6 +1,6 @@
 import { Location } from './../interfaces/Location';
 import React from 'react';
-import LocationList from '../components/LocationLIst';
+import LocationList from '../components/LocationList';
 
 export function PullLocations(): Location[] {
     var locs = new Array();
