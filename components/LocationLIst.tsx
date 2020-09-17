@@ -1,4 +1,3 @@
-import { BuildingLocations } from "../data/BuildingLocations"
 import { List } from "react-native-paper"
 import { Styles } from "./Styles"
 import ProgressCircle from "react-native-progress-circle"
@@ -8,6 +7,7 @@ import {progressGraphicColor} from './ProgressGraphicColor'
 import { PullLocations } from "../data/PullLocations"
 import { Location } from "../interfaces/Location"
 
+<<<<<<< HEAD
 const listLocations = () => {
     /*const [data, setData] = React.useState<Array<Location>>();
     setData(PullLocations());
@@ -41,6 +41,10 @@ const listLocations = () => {
     }
 */
     return BuildingLocations.map((item, idx) => {
+=======
+const LocationList = ({BuildingLocations}: any) => {
+    return BuildingLocations.map((item: any, idx: number) => {
+>>>>>>> testing-site-option
         return (
             <View style = {Styles.accordionContainer} key={idx}>
                 <List.Accordion title={item.name}
@@ -52,11 +56,13 @@ const listLocations = () => {
                     left = {props => 
                         <ProgressCircle
                             percent={(item.occupancy/item.capacity)*100}
-                            radius={30}
-                            borderWidth={10}
+                            radius={34}
+                            borderWidth={7}
                             color = {progressGraphicColor(item.occupancy, item.capacity)}
+                            shadowColor = "#A9A9A9"
                         >
-                            <Text style={{ fontSize: 14 }}>{Math.round((item.occupancy/item.capacity)*100) + '%'}</Text>
+                            <Text style={{ fontSize: 18, fontWeight: "600"}}>{Math.round((item.occupancy/item.capacity)*100)}%</Text>
+                            <Text style={{ fontSize: 12 }}>full</Text>
                         </ProgressCircle>}
                 >
                     <List.Item title={"Current Capacity: " + item.occupancy + "/" + item.capacity} style={Styles.listItem}>
@@ -67,11 +73,4 @@ const listLocations = () => {
     })
 }
 
-export default function LocationList() {
-    return (
-        <List.AccordionGroup>
-            {listLocations()}
-        </List.AccordionGroup>
-    )
-}
-
+export default LocationList
