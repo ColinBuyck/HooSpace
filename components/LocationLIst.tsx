@@ -16,25 +16,25 @@ const listLocations = () => {
         });
     }, [])
 
-    if(data){
+    if (data) {
         return data.map((item, idx) => {
-            if(item && idx && item.maximumAttendeeCapacity){
+            if (item && idx && item.maximumAttendeeCapacity) {
                 return (
-                    <View style = {Styles.accordionContainer} key={idx}>
-                        <List.Accordion 
+                    <View style={Styles.accordionContainer} key={idx}>
+                        <List.Accordion
                             id={idx} title={item.name}
-                            titleStyle= {Styles.listAccordionTitle}
+                            titleStyle={Styles.listAccordionTitle}
                             key={idx}
                             style={Styles.listAccordion}
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
-                            left = {props => 
+                            left={props =>
                                 <ProgressCircle
-                                    percent={(item.occupancy.value/item.maximumAttendeeCapacity)*100}
+                                    percent={(item.occupancy.value / item.maximumAttendeeCapacity) * 100}
                                     radius={30}
                                     borderWidth={10}
-                                    color = {progressGraphicColor(item.occupancy.value, item.maximumAttendeeCapacity)}
+                                    color={progressGraphicColor(item.occupancy.value, item.maximumAttendeeCapacity)}
                                 >
-                                    <Text style={{ fontSize: 14 }}>{Math.round((item.occupancy.value/item.maximumAttendeeCapacity)*100) + '%'}</Text>
+                                    <Text style={{ fontSize: 14 }}>{Math.round((item.occupancy.value / item.maximumAttendeeCapacity) * 100) + '%'}</Text>
                                 </ProgressCircle>}
                         >
                             <List.Item title={"Current Capacity: " + item.occupancy.value + "/" + item.maximumAttendeeCapacity} style={Styles.listItem}>

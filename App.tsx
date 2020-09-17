@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
 import LocationList from './components/LocationList';
 import { Styles } from './components/Styles';
