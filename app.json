@@ -17,7 +17,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hoospace",
+      "config": {
+        "googleMapsApiKey": "AIzaSyCaLEJf6EZTnxGM8MXw_ZSES4rHAjOP6YM"
+      }
+    },
+    "android": {
+      "package": "com.hoospace",
+      "config": {
+        "googleMaps": { "apiKey": "AIzaSyCrNYSvmtLLLs5aizSYOfypCXvAObdqRKw" }   
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -1,10 +1,9 @@
-import { BuildingLocations } from "../data/BuildingLocations"
 import { List } from "react-native-paper"
 import { Styles } from "./Styles"
 import ProgressCircle from "react-native-progress-circle"
 import React from 'react'
 import { Text, View } from 'react-native'
-import {progressGraphicColor} from './ProgressGraphicColor'
+import { progressGraphicColor } from './ProgressGraphicColor'
 import { PullLocations } from "../data/PullLocations"
 import { Location } from "../interfaces/Location"
 

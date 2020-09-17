@@ -1,5 +1,6 @@
 import { Location } from './../interfaces/Location';
 import React from 'react';
+import LocationList from '../components/LocationList';
 
 export function PullLocations(): Promise<Location[]> {
   return fetch("https://uvalib-api-occupancy.firebaseio.com/locations-schemaorg/location.json")
