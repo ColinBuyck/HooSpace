@@ -13,7 +13,7 @@ const listLocations = () => {
     React.useEffect(() => {
         PullLocations().then((locations: Location[]) => {
             setData(locations);
-            console.log(locations);    
+            //console.log(locations);    
         });
     }, [])
 
@@ -46,32 +46,6 @@ const listLocations = () => {
             }
         })
     }
-
-    /*return BuildingLocations.map((item, idx) => {
-        return (
-            <View style = {Styles.accordionContainer} key={idx}>
-                <List.Accordion title={item.name}
-                    titleStyle= {Styles.listAccordionTitle}
-                    key={item.id}
-                    id={item.id}
-                    style={Styles.listAccordion}
-                    theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
-                    left = {props => 
-                        <ProgressCircle
-                            percent={(item.occupancy/item.capacity)*100}
-                            radius={30}
-                            borderWidth={10}
-                            color = {progressGraphicColor(item.occupancy, item.capacity)}
-                        >
-                            <Text style={{ fontSize: 14 }}>{Math.round((item.occupancy/item.capacity)*100) + '%'}</Text>
-                        </ProgressCircle>}
-                >
-                    <List.Item title={"Current Capacity: " + item.occupancy + "/" + item.capacity} style={Styles.listItem}>
-                    </List.Item>
-                </List.Accordion>
-            </View>
-        )
-    })*/
 }
 
 export default function LocationList() {

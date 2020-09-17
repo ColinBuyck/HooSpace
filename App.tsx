@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
-import LocationList from './components/LocationLIst';
+import LocationList from './components/LocationList';
 import { Styles } from './components/Styles';
 
 
 export default function App() {
-
   return (
     <View style={Styles.container}>
       <View style={Styles.notchSeperator}>
