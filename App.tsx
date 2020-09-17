@@ -34,16 +34,16 @@ export default function App() {
       <View style={Styles.seperator}>
       </View>
       <View style ={ Styles.listSwitch}>
-      <SwitchSelector options={[
-    { label: 'Study Spots', value: 0 },
-    { label: 'Testing Locations', value: 1}]} selectedColor={'white'}buttonColor={'#F84C1E'} borderColor={'#F84C1E'}initial={0} 
-      onPress ={value => setView(value)} />
+        <SwitchSelector options={[
+          { label: 'Study Spots', value: 0 },
+          { label: 'Testing Locations', value: 1}]} selectedColor={'white'}buttonColor={'#F84C1E'} borderColor={'#F84C1E'}initial={0} 
+            onPress ={value => setView(value)} />
       </View>
       <ScrollView style={Styles.list}>
         {isStudySpot===0 ? <LocationList BuildingLocations= {BuildingLocations}/> : <TestingList TestingLocations = {TestingData}/>}
       </ScrollView>
       <View style={Styles.seperator}>
       </View>
-    );
-  }
+    </View>
+  );
 }
