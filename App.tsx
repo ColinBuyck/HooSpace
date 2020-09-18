@@ -40,7 +40,7 @@ export default function App() {
           onPress={value => setView(value)} />
       </View>
       <ScrollView style={Styles.list}>
-        {isStudySpot === 0 ? <LocationList BuildingLocations={BuildingLocations} /> : <TestingList TestingLocations={TestingData} />}
+        {isStudySpot === 0 ? <LocationList/> : <TestingList TestingLocations={TestingData} />}
       </ScrollView>
       <View style={Styles.seperator}>
       </View>
