@@ -18,13 +18,13 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.hoospace",
+      "bundleIdentifier": "com.uva.hoospace",
       "config": {
         "googleMapsApiKey": "AIzaSyCaLEJf6EZTnxGM8MXw_ZSES4rHAjOP6YM"
       }
     },
     "android": {
-      "package": "com.hoospace",
+      "package": "com.uva.hoospace",
       "config": {
         "googleMaps": { "apiKey": "AIzaSyCrNYSvmtLLLs5aizSYOfypCXvAObdqRKw" }   
       }
