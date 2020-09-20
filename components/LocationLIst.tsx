@@ -30,11 +30,12 @@ const listLocations = () => {
                             left={props =>
                                 <ProgressCircle
                                     percent={(item.occupancy.value / item.maximumAttendeeCapacity) * 100}
-                                    radius={30}
-                                    borderWidth={10}
+                                    radius={34}
+                                    borderWidth={6}
                                     color={progressGraphicColor(item.occupancy.value, item.maximumAttendeeCapacity)}
                                 >
-                                    <Text style={{ fontSize: 14 }}>{Math.round((item.occupancy.value / item.maximumAttendeeCapacity) * 100) + '%'}</Text>
+                                    <Text style={{ fontSize: 18, fontWeight: "600"}}>{Math.round((item.occupancy.value/item.maximumAttendeeCapacity)*100)}%</Text>
+                                    <Text style={{ fontSize: 12 }}>full</Text>
                                 </ProgressCircle>}
                         >
                             <List.Item title={"Current Capacity: " + item.occupancy.value + "/" + item.maximumAttendeeCapacity} style={Styles.listItem}>
