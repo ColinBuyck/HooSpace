@@ -4,7 +4,7 @@ import { Styles } from "./Styles"
 import MapView from 'react-native-maps';
 
 
-export const Map = () => {
+const Map = (data: any) => {
   return (
     <View style={Styles.insidemap}>
       <MapView
@@ -22,3 +22,5 @@ export const Map = () => {
     </View>
   );
 }
+
+export default Map

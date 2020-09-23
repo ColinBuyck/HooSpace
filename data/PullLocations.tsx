@@ -1,27 +1,13 @@
-import { Location } from './../interfaces/Location';
-
-export function PullLocations(): Promise<Location[]> {
+export function PullLocations(): Promise<any[]> {
   return fetch("https://uvalib-api-occupancy.firebaseio.com/locations-schemaorg/location.json")
     .then(value => {
       return value.json();
     })
     .then(
       json => {
-        var locs = new Array();
-        const buildings = ['physics', 'special-collections', "scholars-lab", 'ivy', "music", "main", "astronomy", "mathematics", "science", "health-sciences", "law", "clemons", "fine-arts", "robertson-media-center", "darden", "jag", "harrison"];
-
-        buildings.forEach((buildingName: string) => {
-          const building = json[buildingName];
-          locs.push({
-            name: building['name'],
-            geo: building['geo'],
-            isOpenNow: building['isOpenNow'],
-            maximumAttendeeCapacity: building['maximumAttendeeCapacity'],
-            occupancy: building['occupancy'],
-            noMaskCount: building['noMaskCount'],
-          });
+        return Object.keys(json).map(function(k) {
+          return json[k];
         });
-        return locs;
       }
     );
 }
