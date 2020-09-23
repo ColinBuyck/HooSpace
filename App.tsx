@@ -4,10 +4,9 @@ import { Image, ScrollView, Text, View } from 'react-native';
 import LocationList from './components/LocationList';
 import { Styles } from './components/Styles';
 import SwitchSelector from 'react-native-switch-selector';
-import { BuildingLocations } from "./data/BuildingLocations"
-import { TestingData } from './data/TestingLocations';
+import { PullLocations } from './data/PullLocations'
 import TestingList from './components/TestingList';
-import { Map } from './components/Map';
+import Map from './components/Map';
 
 
 export default function App() {
@@ -15,6 +14,14 @@ export default function App() {
   const setView = (value: any) => {
     setIsStudySpot(value)
   }
+
+  const [data, setData] = React.useState<Array<any>>();
+  React.useEffect(() => {
+      PullLocations().then((locations: any[]) => {
+          setData(locations); 
+      });
+  }, [])
+
   return (
     <View style={Styles.container}>
       <View style={Styles.notchSeperator}>
@@ -27,7 +34,7 @@ export default function App() {
         <Image style={Styles.sabreLogo} source={require('./assets/uvaLogo.png')} ></Image>
       </View>
       <View style={Styles.mapContainer}>
-        <Map />
+        <Map locations={data}/>
       </View>
       <View style={Styles.seperator}>
       </View>
@@ -40,7 +47,7 @@ export default function App() {
           onPress={value => setView(value)} />
       </View>
       <ScrollView style={Styles.list}>
-        {isStudySpot === 0 ? <LocationList/> : <TestingList TestingLocations={TestingData} />}
+        {isStudySpot === 0 ? <LocationList locations={data}/> : <TestingList locations={data} />}
       </ScrollView>
       <View style={Styles.seperator}>
       </View>

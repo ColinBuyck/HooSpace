@@ -4,18 +4,8 @@ import ProgressCircle from "react-native-progress-circle"
 import React from 'react'
 import { Text, View } from 'react-native'
 import { progressGraphicColor } from './ProgressGraphicColor'
-import { PullLocations } from "../data/PullLocations"
-import { Location } from "../interfaces/Location"
 
-const listLocations = () => {
-    const [data, setData] = React.useState<Array<Location>>();
-    React.useEffect(() => {
-        PullLocations().then((locations: Location[]) => {
-            setData(locations);
-            //console.log(locations);    
-        });
-    }, [])
-
+const listLocations = (data: any[]) => {
     if (data) {
         return data.map((item, idx) => {
             if (item && idx && item.maximumAttendeeCapacity) {
@@ -48,11 +38,12 @@ const listLocations = () => {
     }
 }
 
-export default function LocationList() {
+const LocationList = ({locations}: any) => {
     return (
         <List.AccordionGroup>
-            {listLocations()}
+            {listLocations(locations)}
         </List.AccordionGroup>
     )
 }
 
+export default LocationList
