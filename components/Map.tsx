@@ -4,7 +4,7 @@ import { Styles } from "./Styles"
 import MapView, { Marker } from 'react-native-maps';
 
 
-const Map = (data: any[]) => {
+const Map = ({locations}: any) => {
   return (
     <View style={Styles.insidemap}>
       <MapView
@@ -19,30 +19,48 @@ const Map = (data: any[]) => {
           longitudeDelta: 0.0003
         }}
       >
-       <Marker
+
+        
+        {locations && locations.map((item: any, idx: any) => {
+            if (item && idx && (item.maximumAttendeeCapacity || item['@type'] == "CovidTestSite")) {
+              return (
+                  <Marker
+                    key = {item.name}
+                    coordinate={
+                      { latitude: item.geo.latitude, longitude: item.geo.longitude }
+                    }
+                    title={item.name}
+                  />
+              )
+            }
+          })
+        }
+
+
+{/* <Marker
+                    coordinate={
+                      { latitude: 38.0365, longitude: -78.506099 }
+                    }
+                    title={"Clemons Library"}
+                  />
+        <Marker
           coordinate={
-            {latitude: 38.0365, longitude:-78.506099}
-          }
-          title={"Clemons Library"}
-        />
-       <Marker
-          coordinate={
-            {latitude: 38.0331, longitude:-78.507999}
+            { latitude: 38.0331, longitude: -78.507999 }
           }
           title={"Charles L Brown Science & Engineering Library"}
         />
         <Marker
           coordinate={
-            {latitude: 38.035588, longitude:-78.506919}
+            { latitude: 38.035588, longitude: -78.506919 }
           }
           title={"Newcomb Hall South Meeting Room Covid Test Site"}
         />
         <Marker
           coordinate={
-            {latitude: 38.035579, longitude:-78.503389}
+            { latitude: 38.035579, longitude: -78.503389 }
           }
           title={"Rotunda Multipurpose Room Covid Test Site"}
-        />
+        /> */}
 
         {/* {data.map((item, idx) => (
           <Marker
