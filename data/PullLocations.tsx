@@ -5,9 +5,15 @@ export function PullLocations(): Promise<any[]> {
     })
     .then(
       json => {
-        return Object.keys(json).map(function(k) {
+        var list = Object.keys(json).map(function(k) {
           return json[k];
         });
+
+        list.map((item) => {
+          item.name = item.name.replace(/&amp;/g, '&');
+        });
+
+        return list;
       }
     );
 }
