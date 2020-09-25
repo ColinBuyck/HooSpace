@@ -84,5 +84,10 @@ export const Styles = StyleSheet.create({
   minWait: {
     backgroundColor: "#d4d4d4",
     borderColor: "black"
+  },
+  closed: {
+    resizeMode: "contain",
+    height: "100%",
+    
   }
 });
