@@ -11,3 +11,4 @@ export function progressGraphicColor(x: number, y: number): string {
         return '#FF0000'
     }
 }
+

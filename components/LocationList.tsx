@@ -2,7 +2,7 @@ import { List } from "react-native-paper"
 import { Styles } from "./Styles"
 import ProgressCircle from "react-native-progress-circle"
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { progressGraphicColor } from './ProgressGraphicColor'
 
 const listLocations = (data: any[]) => {
@@ -23,13 +23,26 @@ const listLocations = (data: any[]) => {
                                     radius={34}
                                     borderWidth={6}
                                     color={progressGraphicColor(item.occupancy.value, item.maximumAttendeeCapacity)}
+
                                 >
-                                    <Text style={{ fontSize: 18, fontWeight: "600"}}>{Math.round((item.occupancy.value/item.maximumAttendeeCapacity)*100)}%</Text>
-                                    <Text style={{ fontSize: 12 }}>full</Text>
+                                    <View>
+                                        {item.isOpenNow ? 
+                                        <>
+                                        <Text style={{ fontSize: 18, fontWeight: "600", alignSelf: 'center'}}>{Math.round((item.occupancy.value/item.maximumAttendeeCapacity)*100)}%</Text>
+                                        <Text style={{ fontSize: 12, alignSelf: 'center'}}>full</Text>
+                                        </>
+                                        :
+                                        <Image style = {Styles.closed} source={require('../assets/closed.png')} ></Image>
+                                        }
+                                    </View>
                                 </ProgressCircle>}
                         >
+                            {item.isOpenNow ?
                             <List.Item title={"Current Capacity: " + item.occupancy.value + "/" + item.maximumAttendeeCapacity} style={Styles.listItem}>
-                            </List.Item>
+                            </List.Item> :
+                            <List.Item title={"Current Capacity: Closed"} style={Styles.listItem}>
+                            </List.Item>}
+
                         </List.Accordion>
                     </View>
                 )
