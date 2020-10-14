@@ -14,8 +14,7 @@ export const Styles = StyleSheet.create({
     borderRadius: 20,
   },
   iconText: {
-    fontSize: 25,
-    fontStyle: 'italic',
+    fontSize: 30,
     color: 'white'
   },
   header: {

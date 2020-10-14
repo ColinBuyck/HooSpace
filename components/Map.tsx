@@ -1,10 +1,17 @@
 import React from "react";
-import { View } from "react-native";
+import { Image, View } from "react-native";
 import { Styles } from "./Styles"
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 
 
-const Map = (data: any) => {
+
+const Map = ({ locations }: any) => {
+  // const [center, setCenter] = React.useState({
+  //   latitude: 38.0336,
+  //   longitude: -78.5080,
+  //   latitudeDelta: 0.006,
+  //   longitudeDelta: 0.0003
+  // });
   return (
     <View style={Styles.insidemap}>
       <MapView
@@ -18,9 +25,40 @@ const Map = (data: any) => {
           latitudeDelta: 0.006,
           longitudeDelta: 0.0003
         }}
-      />
+        //region={ center }
+      >
+
+        
+        {locations && locations.map((item: any, idx: any) => {
+            if (item && idx && item.geo && item.name && (item.maximumAttendeeCapacity || item['@type'] == "CovidTestSite")) {
+              return (
+                  <Marker
+                    key = {idx}
+                    coordinate={
+                      { latitude: item.geo.latitude, longitude: item.geo.longitude }
+                    }
+                    title={item.name}
+                    image={require('../assets/hoospace_transparent_noname_small.png')}
+                  />
+              )
+            }
+          })
+        }
+      </MapView>
     </View>
   );
 }
 
+// export const changeCenter = (geo: any) => {
+//   setCenter({
+//     latitude: geo.latitude,
+//     longitude: geo.longitude,
+//     latitudeDelta: 0.006,
+//     longitudeDelta: 0.0003
+//   })
+// }
+
 export default Map
+
+
+//<Image style={Styles.sabreLogo} source={require('../assets/uvaLogo.png')}></Image>

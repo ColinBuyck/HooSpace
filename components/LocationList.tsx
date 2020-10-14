@@ -4,15 +4,19 @@ import ProgressCircle from "react-native-progress-circle"
 import React from 'react'
 import { Image, Text, View } from 'react-native'
 import { progressGraphicColor } from './ProgressGraphicColor'
+//import changeCenter from './Map';
+ //onPress={() => {changeCenter(item.geo)}}
 
 const listLocations = (data: any[]) => {
     if (data) {
         return data.map((item, idx) => {
-            if (item && idx && item.maximumAttendeeCapacity) {
+            if (item && idx && item.maximumAttendeeCapacity && item.occupancy && item.name) {
                 return (
                     <View style={Styles.accordionContainer} key={idx}>
                         <List.Accordion
-                            id={idx} title={item.name}
+                            id={idx}
+                            title={item.name}
+                           
                             titleStyle={Styles.listAccordionTitle}
                             key={idx}
                             style={Styles.listAccordion}
