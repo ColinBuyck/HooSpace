@@ -38,7 +38,7 @@ const Map = ({ locations }: any) => {
                       { latitude: item.geo.latitude, longitude: item.geo.longitude }
                     }
                     title={item.name}
-                    image={require('../assets/hoospace_transparent_small.png')}
+                    image={require('../assets/hoospace_transparent_noname_small.png')}
                   />
               )
             }
