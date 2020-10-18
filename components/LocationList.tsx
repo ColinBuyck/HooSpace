@@ -16,7 +16,6 @@ const listLocations = (data: any[]) => {
                         <List.Accordion
                             id={idx}
                             title={item.name}
-                           
                             titleStyle={Styles.listAccordionTitle}
                             key={idx}
                             style={Styles.listAccordion}
@@ -41,12 +40,16 @@ const listLocations = (data: any[]) => {
                                     </View>
                                 </ProgressCircle>}
                         >
-                            {item.isOpenNow ?
-                            <List.Item title={"Current Capacity: " + item.occupancy.value + "/" + item.maximumAttendeeCapacity} style={Styles.listItem}>
-                            </List.Item> :
-                            <List.Item title={"Current Capacity: Closed"} style={Styles.listItem}>
-                            </List.Item>}
 
+                            {item.isOpenNow ?
+                            <List.Item title={"Current Capacity: " + item.occupancy.value + "/" + item.maximumAttendeeCapacity} style={Styles.listItem}/>:
+                            <List.Item title={"Current Capacity: Closed"} style={Styles.listItem}/>
+                            }
+
+                            {item.occupancy.timestamp_end ?
+                                <List.Item title={"Updated: " + new Date(item.occupancy.timestamp_end).getHours() + ":" + new Date(item.occupancy.timestamp_end).getMinutes()}/> :
+                                <List.Item title={"Updated: " + new Date(item.occupancy.timestamp).getHours() + ":" + new Date(item.occupancy.timestamp).getMinutes()}/>
+                            }
                         </List.Accordion>
                     </View>
                 )
