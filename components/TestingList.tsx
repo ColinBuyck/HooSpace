@@ -7,7 +7,7 @@ import { progressGraphicColor } from './ProgressGraphicColor'
 
 const TestingList = ({ locations }: any) => {
     return locations.map((item: any, idx: number) => {
-        if (item['@type'] == "CovidTestSite") {
+        if (item && idx && item.name && item.occupancy && item.openingHours && item['@type'] == "CovidTestSite" ) {
             return (
                 <View style={Styles.accordionContainer} key={idx}>
                     <List.Accordion title={item.name}
@@ -28,10 +28,9 @@ const TestingList = ({ locations }: any) => {
 
                             </ProgressCircle>}
                     >
-                        <List.Item title={"Curent line length: " + item.occupancy.value + " people"} style={Styles.listItem}>
-                        </List.Item>
-                        <List.Item title={"Hours: " + item.openingHours} style={Styles.listItem}>
-                        </List.Item>
+                        <List.Item title={"Curent line length: " + item.occupancy.value + " people"} style={Styles.listItem}/>
+                        {item.occupancy.timestamp && <List.Item title={"Updated: " + new Date(item.occupancy.timestamp).getHours() + ":" + new Date(item.occupancy.timestamp_end).getMinutes()}/>}
+                        <List.Item title={"Hours: " + item.openingHours} style={Styles.listItem}/>
                     </List.Accordion>
                 </View>
             )
