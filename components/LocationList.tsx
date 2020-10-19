@@ -10,14 +10,15 @@ import { progressGraphicColor } from './ProgressGraphicColor'
 const listLocations = (data: any[]) => {
     if (data) {
         return data.map((item, idx) => {
-            if (item && idx && item.maximumAttendeeCapacity && item.occupancy && item.name) {
+            console.log("item: " + JSON.stringify(item))
+            if (item && item.maximumAttendeeCapacity && item.occupancy && item.name) {
                 return (
-                    <View style={Styles.accordionContainer} key={idx}>
+                    <View style={Styles.accordionContainer} key={idx+1}>
                         <List.Accordion
-                            id={idx}
+                            id={idx+1}
                             title={item.name}
                             titleStyle={Styles.listAccordionTitle}
-                            key={idx}
+                            key={idx+1}
                             style={Styles.listAccordion}
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
                             left={props =>

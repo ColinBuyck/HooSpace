@@ -30,10 +30,10 @@ const Map = ({ locations }: any) => {
 
         
         {locations && locations.map((item: any, idx: any) => {
-            if (item && idx && item.geo && item.name && (item.maximumAttendeeCapacity || item['@type'] == "CovidTestSite")) {
+            if (item && item.geo && item.name && (item.maximumAttendeeCapacity || item['@type'] == "CovidTestSite")) {
               return (
                   <Marker
-                    key = {idx}
+                    key = {idx+1}
                     coordinate={
                       { latitude: item.geo.latitude, longitude: item.geo.longitude }
                     }
