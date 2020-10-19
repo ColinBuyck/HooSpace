@@ -1,5 +1,5 @@
 export function PullLocations(): Promise<any[]> {
-  return fetch("https://uvalib-api-occupancy.firebaseio.com/locations-schemaorg/location.json")
+  return fetch("https://api.devhub.virginia.edu/v1/occupancy/location.json?orderBy=%22isActive%22&startAt=true&endAt=true")
     .then(value => {
       return value.json();
     })

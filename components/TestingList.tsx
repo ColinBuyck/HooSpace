@@ -7,13 +7,13 @@ import { progressGraphicColor } from './ProgressGraphicColor'
 
 const TestingList = ({ locations }: any) => {
     return locations.map((item: any, idx: number) => {
-        if (item && idx && item.name && item.occupancy && item.openingHours && item['@type'] == "CovidTestSite" ) {
+        if (item && item.name && item.occupancy && item.openingHours && item['@type'] == "CovidTestSite" ) {
             return (
-                <View style={Styles.accordionContainer} key={idx}>
+                <View style={Styles.accordionContainer} key={idx+1}>
                     <List.Accordion title={item.name}
                         titleStyle={Styles.listAccordionTitle}
-                        key={idx}
-                        id={idx}
+                        key={idx+1}
+                        id={idx+1}
                         style={Styles.listAccordion}
                         theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
                         left={props =>
