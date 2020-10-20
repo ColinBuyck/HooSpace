@@ -1,5 +1,5 @@
 export function PullLocations(): Promise<any[]> {
-  return fetch("https://api.devhub.virginia.edu/v1/occupancy/location.json?orderBy=%22isActive%22&startAt=true&endAt=true")
+  return fetch("https://api.devhub.virginia.edu/v1/occupancy/location.json")
     .then(value => {
       return value.json();
     })

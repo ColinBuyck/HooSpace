@@ -10,8 +10,8 @@ import { progressGraphicColor } from './ProgressGraphicColor'
 const listLocations = (data: any[]) => {
     if (data) {
         return data.map((item, idx) => {
-            console.log("item: " + JSON.stringify(item))
-            if (item && item.maximumAttendeeCapacity && item.occupancy && item.name) {
+            //console.log("item: " + JSON.stringify(item))
+            if (item && item.isActive && item.maximumAttendeeCapacity && item.occupancy && item.name) {
                 return (
                     <View style={Styles.accordionContainer} key={idx+1}>
                         <List.Accordion
