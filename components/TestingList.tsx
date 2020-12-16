@@ -8,6 +8,15 @@ import { progressGraphicColor } from './ProgressGraphicColor'
 const TestingList = ({ locations }: any) => {
     return locations.map((item: any, idx: number) => {
         if (item && item.name && item.occupancy && item.openingHours && item['@type'] == "CovidTestSite" ) {
+            let currentDate: Date = new Date(item.occupancy.timestamp);
+            let dateOutput: string;
+            if(currentDate.getHours() > 12){
+                currentDate.setHours(currentDate.getHours()-12);
+                dateOutput = currentDate.getHours() + ":" + currentDate.getMinutes()+ " pm";
+            }
+            else{
+                dateOutput = currentDate.getHours() + ":" + currentDate.getMinutes() + " am";
+            }
             return (
                 <View style={Styles.accordionContainer} key={idx+1}>
                     <List.Accordion title={item.name}
@@ -29,7 +38,7 @@ const TestingList = ({ locations }: any) => {
                             </ProgressCircle>}
                     >
                         <List.Item title={"Curent line length: " + item.occupancy.value + " people"} style={Styles.listItem}/>
-                        {item.occupancy.timestamp && <List.Item title={"Updated: " + new Date(item.occupancy.timestamp).getHours() + ":" + new Date(item.occupancy.timestamp_end).getMinutes()}/>}
+                        {item.occupancy.timestamp && <List.Item title={"Updated: " + dateOutput}/>}
                         <List.Item title={"Hours: " + item.openingHours} style={Styles.listItem}/>
                     </List.Accordion>
                 </View>

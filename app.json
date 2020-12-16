@@ -1,12 +1,13 @@
 {
   "expo": {
-    "name": "CavSpace",
-    "slug": "CavSpace",
-    "version": "1.0.0",
+    "name": "HooSpace",
+    "slug": "HooSpace",
+    "version": "1.0.1",
+    "privacy": "unlisted",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/AppIcon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash_split.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

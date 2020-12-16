@@ -4,6 +4,7 @@ import ProgressCircle from "react-native-progress-circle"
 import React from 'react'
 import { Image, Text, View } from 'react-native'
 import { progressGraphicColor } from './ProgressGraphicColor'
+import { Item } from "react-native-paper/lib/typescript/src/components/Drawer/Drawer"
 //import changeCenter from './Map';
  //onPress={() => {changeCenter(item.geo)}}
 
@@ -11,7 +12,22 @@ const listLocations = (data: any[]) => {
     if (data) {
         return data.map((item, idx) => {
             //console.log("item: " + JSON.stringify(item))
-            if (item && item.isActive && item.maximumAttendeeCapacity && item.occupancy && item.name) {
+            if (item && item.isActive && item.maximumAttendeeCapacity && item.occupancy && item.name && (item.occupancy.timestamp || item.occupancy.timestamp_end)) {
+                let currentDate: Date = new Date();
+                if(item.occupancy.timestamp){
+                    currentDate = new Date(item.occupancy.timestamp);
+                }
+                else if(item.occupancy.timestamp_end){
+                    currentDate = new Date(item.occupancy.timestamp_end);
+                }
+                let dateOutput: string;
+                if(currentDate.getHours() > 12){
+                    currentDate.setHours(currentDate.getHours()-12);
+                    dateOutput = currentDate.getHours() + ":" + currentDate.getMinutes()+ " pm";
+                }
+                else{
+                    dateOutput = currentDate.getHours() + ":" + currentDate.getMinutes() + " am";
+                }
                 return (
                     <View style={Styles.accordionContainer} key={idx+1}>
                         <List.Accordion
@@ -47,9 +63,8 @@ const listLocations = (data: any[]) => {
                             <List.Item title={"Current Capacity: Closed"} style={Styles.listItem}/>
                             }
 
-                            {item.occupancy.timestamp_end ?
-                                <List.Item title={"Updated: " + new Date(item.occupancy.timestamp_end).getHours() + ":" + new Date(item.occupancy.timestamp_end).getMinutes()}/> :
-                                <List.Item title={"Updated: " + new Date(item.occupancy.timestamp).getHours() + ":" + new Date(item.occupancy.timestamp).getMinutes()}/>
+                            {
+                            <List.Item title={"Updated: " + dateOutput}/>
                             }
                         </List.Accordion>
                     </View>
