@@ -16,11 +16,15 @@ export default function App() {
   }
 
   const [data, setData] = React.useState<Array<any>>();
-  React.useEffect(() => {
       PullLocations().then((locations: any[]) => {
           setData(locations); 
       });
-  }, [])
+
+  const interval = setInterval(() => {PullLocations().then((locations: any[]) => {
+                      setData(locations); 
+                    });}, 60000);
+  
+  clearInterval(interval);
 
   return (
     <View style={Styles.container}>
