@@ -7,7 +7,7 @@ import { progressGraphicColor } from './ProgressGraphicColor'
 
 const TestingList = ({ locations }: any) => {
     return locations.map((item: any, idx: number) => {
-        if (item && item.name && item.occupancy && item.openingHours && item['@type'] == "CovidTestSite" ) {
+        if (item && item.isActive && item.name && item.occupancy && item.openingHours && item['@type'] == "CovidTestSite" ) {
             let currentDate: Date = new Date(item.occupancy.timestamp);
             let dateOutput: string;
             if(currentDate.getHours() > 12){
