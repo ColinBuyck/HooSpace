@@ -30,17 +30,30 @@ const Map = ({ locations }: any) => {
 
         
         {locations && locations.map((item: any, idx: any) => {
-            if (item && item.geo && item.name && ((item.maximumAttendeeCapacity  && item.isActive )|| item['@type'] == "CovidTestSite")) {
-              return (
+            if (item && item.geo && item.name  && item.isActive ) {
+              if(item['@type'] != "CovidTestSite"){
+                return (
                   <Marker
                     key = {idx+1}
                     coordinate={
                       { latitude: item.geo.latitude, longitude: item.geo.longitude }
                     }
                     title={item.name}
-                    image={require('../assets/hoospace_transparent_noname_contrast_small.png')}
+                    image={require('../assets/space_marker.png')}
                   />
-              )
+                )
+              } else {
+                return (
+                  <Marker
+                    key = {idx+1}
+                    coordinate={
+                      { latitude: item.geo.latitude, longitude: item.geo.longitude }
+                    }
+                    title={item.name}
+                    image={require('../assets/test_marker.png')}
+                  />
+                )
+              }
             }
           })
         }
