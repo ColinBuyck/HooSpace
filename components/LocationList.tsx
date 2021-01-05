@@ -21,12 +21,19 @@ const listLocations = (data: any[]) => {
                     currentDate = new Date(item.occupancy.timestamp_end);
                 }
                 let dateOutput: string;
+                let minOutput: string;
+                if(currentDate.getMinutes() < 10) { minOutput = "0" + String(currentDate.getMinutes());}
+                else {minOutput = String(currentDate.getMinutes());}    
                 if(currentDate.getHours() > 12){
                     currentDate.setHours(currentDate.getHours()-12);
-                    dateOutput = currentDate.getHours() + ":" + currentDate.getMinutes()+ " pm";
+                    dateOutput = currentDate.getHours() + ":" + minOutput+ " pm";
+                }
+                else if(currentDate.getHours() == 0){
+                    currentDate.setHours(12);
+                    dateOutput = currentDate.getHours() + ":" + minOutput + " am";
                 }
                 else{
-                    dateOutput = currentDate.getHours() + ":" + currentDate.getMinutes() + " am";
+                    dateOutput = currentDate.getHours() + ":" + minOutput + " am";
                 }
                 return (
                     <View style={Styles.accordionContainer} key={idx+1}>
