@@ -5,7 +5,7 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { progressGraphicColor } from './ProgressGraphicColor'
 
-const listTestSites = ({ locations }: any) => {
+const listTestSites = ( locations : any) => {
     return locations.map((item: any, idx: number) => {
         if (item && item.isActive && item.name && item.occupancy && item.openingHours && item['@type'] == "CovidTestSite" ) {
             let currentDate: Date = new Date(item.occupancy.timestamp);
