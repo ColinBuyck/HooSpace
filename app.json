@@ -2,7 +2,7 @@
   "expo": {
     "name": "HooSpace",
     "slug": "HooSpace",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "privacy": "unlisted",
     "orientation": "portrait",
     "icon": "./assets/HooSpaceIcon.png",
