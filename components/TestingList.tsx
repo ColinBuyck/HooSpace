@@ -5,7 +5,7 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { progressGraphicColor } from './ProgressGraphicColor'
 
-const listTestSites = ( locations : any) => {
+const listTestSites = (locations, updateExpanded, isExpanded, currIndex) => {
     return locations.map((item: any, idx: number) => {
         if (item && item.isActive && item.name && item.occupancy && item.openingHours && item['@type'] == "CovidTestSite" ) {
             let currentDate: Date = new Date(item.occupancy.timestamp);
@@ -31,6 +31,8 @@ const listTestSites = ( locations : any) => {
                         key={idx+1}
                         id={idx+1}
                         style={Styles.listAccordion}
+                        expanded = {isExpanded(idx, currIndex)}
+                        onPress = {() => updateExpanded(idx)}
                         theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
                         left={props =>
                             <ProgressCircle
@@ -54,11 +56,11 @@ const listTestSites = ( locations : any) => {
     })
 }
 
-const TestingList = ({locations}: any) => {
+const TestingList = ({currIndex ,locations, updateExpanded, isExpanded}) => {
     return (
-        <List.AccordionGroup>
-            {listTestSites(locations)}
-        </List.AccordionGroup>
+        <View>
+            {listTestSites(locations, updateExpanded, isExpanded, currIndex)}
+        </View>
     )
 }
 export default TestingList
