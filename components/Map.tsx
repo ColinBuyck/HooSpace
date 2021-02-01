@@ -40,6 +40,7 @@ const Map = ({ locations }: any) => {
                     }
                     title={item.name}
                     image={require('../assets/space_marker.png')}
+                    style={{height: 20, width: 20}}
                   />
                 )
               } else {
@@ -51,6 +52,7 @@ const Map = ({ locations }: any) => {
                     }
                     title={item.name}
                     image={require('../assets/test_marker.png')}
+                    style={{height: 20, width: 20}}
                   />
                 )
               }
