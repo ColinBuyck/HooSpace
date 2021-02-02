@@ -39,9 +39,13 @@ const Map = ({ locations }: any) => {
                       { latitude: item.geo.latitude, longitude: item.geo.longitude }
                     }
                     title={item.name}
-                    image={require('../assets/space_marker.png')}
-                    style={{height: 20, width: 20}}
-                  />
+                    
+                  >
+                    <Image
+                      source={require('../assets/space_marker.png')}
+                      style={{height: 31, width: 20}}
+                    />
+                  </Marker>
                 )
               } else {
                 return (
@@ -51,9 +55,12 @@ const Map = ({ locations }: any) => {
                       { latitude: item.geo.latitude, longitude: item.geo.longitude }
                     }
                     title={item.name}
-                    image={require('../assets/test_marker.png')}
-                    style={{height: 20, width: 20}}
-                  />
+                  >
+                    <Image
+                      source={require('../assets/test_marker.png')}
+                      style={{height: 31, width: 20}}
+                    />
+                  </Marker>
                 )
               }
             }
