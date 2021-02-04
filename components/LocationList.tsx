@@ -4,7 +4,6 @@ import ProgressCircle from "react-native-progress-circle"
 import React from 'react'
 import { Image, Text, View } from 'react-native'
 import { progressGraphicColor } from './ProgressGraphicColor'
-import { Item } from "react-native-paper/lib/typescript/src/components/Drawer/Drawer"
 //import changeCenter from './Map';
  //onPress={() => {changeCenter(item.geo)}}
 
@@ -46,11 +45,10 @@ const listLocations = (data: any[]) => {
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
                             left={props =>
                                 <ProgressCircle
-                                    percent={(item.occupancy.value / item.maximumAttendeeCapacity) * 100}
+                                    percent= {item.isOpenNow ?(item.occupancy.value / item.maximumAttendeeCapacity) * 100 : 0}
                                     radius={34}
                                     borderWidth={6}
                                     color={progressGraphicColor(item.occupancy.value, item.maximumAttendeeCapacity)}
-
                                 >
                                     <View>
                                         {item.isOpenNow ? 
