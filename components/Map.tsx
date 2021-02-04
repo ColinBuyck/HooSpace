@@ -43,7 +43,7 @@ const Map = ({ locations }: any) => {
                   >
                     <Image
                       source={require('../assets/space_marker.png')}
-                      style={{height: 31, width: 20}}
+                      style={{height: 40, width: 40}}
                     />
                   </Marker>
                 )
@@ -58,7 +58,7 @@ const Map = ({ locations }: any) => {
                   >
                     <Image
                       source={require('../assets/test_marker.png')}
-                      style={{height: 31, width: 20}}
+                      style={{height: 40, width: 40}}
                     />
                   </Marker>
                 )
