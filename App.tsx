@@ -77,7 +77,7 @@ render(){
 
   const interval = setInterval(() => {PullLocations().then((locations: any[]) => {
      this.setState({data : locations}); 
-   });}, 60000);
+   });}, 120000);
 
   clearInterval(interval);
   return (
@@ -100,12 +100,13 @@ render(){
       </View>
       <View style={Styles.listSwitch}>
         <SwitchSelector options={[
-          { label: 'UVA Locations', value: 0 },
+          { label: 'Student Spots', value: 0 },
           { label: 'Testing Centers', value: 1 }]} 
           selectedColor={'white'} 
           buttonColor={'#F84C1E'} 
           borderColor={'#F84C1E'} 
           initial= {0}
+          value = {this.state.isStudySpot}
           onPress={value => {
             this.setView(value)}
           } 

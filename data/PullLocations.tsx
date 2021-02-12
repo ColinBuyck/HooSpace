@@ -10,7 +10,9 @@ export function PullLocations(): Promise<any[]> {
         });
 
         list.map((item) => {
-          item.name = item.name.replace(/&amp;/g, '&');
+          if(item.name){
+            item.name = item.name.replace(/&amp;/g, '&');
+          }
         });
 
         return list;
