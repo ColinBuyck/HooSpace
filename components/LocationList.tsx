@@ -7,12 +7,11 @@ import { progressGraphicColor } from './ProgressGraphicColor'
 //import changeCenter from './Map';
  //onPress={() => {changeCenter(item.geo)}}
 
-const listLocations = (data, updateExpanded, isExpanded, currIndex) => {
+const listLocations = (data: any[]) => {
     if (data) {
         return data.map((item, idx) => {
             //console.log("item: " + JSON.stringify(item))
             if (item && item.isActive && item.maximumAttendeeCapacity && item.occupancy && item.name && (item.occupancy.timestamp || item.occupancy.timestamp_end)) {
-                //listExpander(idx);
                 let currentDate: Date = new Date();
                 let timestamp: Date = new Date();
                 if(item.occupancy.timestamp){
@@ -60,7 +59,6 @@ const listLocations = (data, updateExpanded, isExpanded, currIndex) => {
                             titleNumberOfLines={3}
                             descriptionNumberOfLines={3}
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
-                            expanded = {isExpanded(idx, currIndex)}
                             left={props =>
                                 <ProgressCircle
                                     percent= {item.isOpenNow ?(item.occupancy.value / item.maximumAttendeeCapacity) * 100 : 0}
@@ -79,7 +77,6 @@ const listLocations = (data, updateExpanded, isExpanded, currIndex) => {
                                         }
                                     </View>
                                 </ProgressCircle>}
-                            onPress = {() => updateExpanded(idx)}
                         >
 
                             {item.isOpenNow ?
@@ -98,19 +95,10 @@ const listLocations = (data, updateExpanded, isExpanded, currIndex) => {
     }
 }
 
-const LocationList = ({currIndex ,locations, updateExpanded, isExpanded}) => {
+export const LocationList = ({locations}: any) => {
     return (
-        <View>
-            {listLocations(locations, updateExpanded, isExpanded, currIndex)}
-        </View>
-        //<List.AccordionGroup 
-        // onAccordionPress = {(expandedID) => 
-        //     {updateExpanded(expandedID)
-        //     alert(currIndex)}
-        //     }
-        //>
-        //</List.AccordionGroup>
+        <List.AccordionGroup>
+            {listLocations(locations)}
+        </List.AccordionGroup>
     )
 }
-
-export default LocationList
