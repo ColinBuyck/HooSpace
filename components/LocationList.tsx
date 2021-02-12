@@ -36,7 +36,7 @@ const listLocations = (data, updateExpanded, isExpanded, currIndex) => {
                     dateOutput = currentDate.getHours() + ":" + minOutput + " am";
                 }
                 return (
-                    <View style={Styles.accordionContainer} key={idx+1}>
+                    <View  style={Styles.accordionContainer} key={idx+1}>
                         <List.Accordion
                             id={idx+1}
                             title={item.name}
@@ -44,7 +44,7 @@ const listLocations = (data, updateExpanded, isExpanded, currIndex) => {
                             key={idx+1}
                             style={Styles.listAccordion}
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
-                            expanded = {isExpanded(idx, currIndex)}
+                            expanded =  {isExpanded(idx, currIndex)}
                             left={props =>
                                 <ProgressCircle
                                     percent={(item.occupancy.value / item.maximumAttendeeCapacity) * 100}
