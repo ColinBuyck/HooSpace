@@ -49,7 +49,7 @@ const listLocations = (data: any[]) => {
                     dateOutput = Math.floor(seconds) + " seconds ago";
 
                 return (
-                    <View style={Styles.accordionContainer} key={idx+1}>
+                    <View  style={Styles.accordionContainer} key={idx+1}>
                         <List.Accordion
                             id={idx+1}
                             title={item.name}
@@ -59,6 +59,7 @@ const listLocations = (data: any[]) => {
                             titleNumberOfLines={3}
                             descriptionNumberOfLines={3}
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
+                            expanded =  {isExpanded(idx, currIndex)}
                             left={props =>
                                 <ProgressCircle
                                     percent= {item.isOpenNow ?(item.occupancy.value / item.maximumAttendeeCapacity) * 100 : 0}
