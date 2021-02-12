@@ -49,7 +49,7 @@ export const Styles = StyleSheet.create({
   listAccordionTitle: {
     fontSize: 22,
     fontStyle: 'italic',
-    fontWeight: "400"
+    fontWeight: "400",
   },
   listAccordion: {
     backgroundColor: 'white',
