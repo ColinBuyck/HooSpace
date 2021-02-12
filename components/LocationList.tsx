@@ -59,7 +59,6 @@ const listLocations = (data: any[]) => {
                             titleNumberOfLines={3}
                             descriptionNumberOfLines={3}
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
-                            expanded =  {isExpanded(idx, currIndex)}
                             left={props =>
                                 <ProgressCircle
                                     percent= {item.isOpenNow ?(item.occupancy.value / item.maximumAttendeeCapacity) * 100 : 0}
