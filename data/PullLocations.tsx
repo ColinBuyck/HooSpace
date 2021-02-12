@@ -8,9 +8,7 @@ export function PullLocations(): Promise<any[]> {
         var list = Object.keys(json).map(function(k) {
           return json[k];
         });
-
-        console.log(list);
-
+        
         list.map((item) => {
           if(item.name){
             item.name = item.name.replace(/&amp;/g, '&');
