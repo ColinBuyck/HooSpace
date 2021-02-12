@@ -5,7 +5,7 @@ import MapView, { Marker } from 'react-native-maps';
 
 
 
-const Map = ({ locations }: any) => {
+const Map = ({ locations, setView, updateExpanded}) => {
   // const [center, setCenter] = React.useState({
   //   latitude: 38.0336,
   //   longitude: -78.5080,
@@ -39,13 +39,16 @@ const Map = ({ locations }: any) => {
                       { latitude: item.geo.latitude, longitude: item.geo.longitude }
                     }
                     title={item.name}
-                    image={require('../assets/space_marker.png')}
                     onPress = {() => {
                       setView(0)
                       updateExpanded(idx)
                       }
-                    }
-                  />
+                    }>
+                      <Image
+                      source={require('../assets/space_marker.png')}
+                      style={{height: 43, width: 43}}
+                    />  
+                    </Marker>
                 )
               } else {
                 return (
@@ -55,13 +58,16 @@ const Map = ({ locations }: any) => {
                       { latitude: item.geo.latitude, longitude: item.geo.longitude }
                     }
                     title={item.name}
-                    image={require('../assets/test_marker.png')}
                     onPress = {() => {
                       setView(1)
                       updateExpanded(idx)
                     }
-                    }
-                  />
+                    }>
+                      <Image
+                      source={require('../assets/test_marker.png')}
+                      style={{height: 43, width: 43}}
+                    />  
+                    </Marker>
                 )
               }
             }

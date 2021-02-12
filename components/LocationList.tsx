@@ -12,29 +12,42 @@ const listLocations = (data, updateExpanded, isExpanded, currIndex) => {
         return data.map((item, idx) => {
             //console.log("item: " + JSON.stringify(item))
             if (item && item.isActive && item.maximumAttendeeCapacity && item.occupancy && item.name && (item.occupancy.timestamp || item.occupancy.timestamp_end)) {
-                //listExpander(idx);
                 let currentDate: Date = new Date();
+                let timestamp: Date = new Date();
                 if(item.occupancy.timestamp){
-                    currentDate = new Date(item.occupancy.timestamp);
+                    timestamp = new Date(item.occupancy.timestamp);
                 }
                 else if(item.occupancy.timestamp_end){
-                    currentDate = new Date(item.occupancy.timestamp_end);
+                    timestamp = new Date(item.occupancy.timestamp_end);
                 }
-                let dateOutput: string;
-                let minOutput: string;
-                if(currentDate.getMinutes() < 10) { minOutput = "0" + String(currentDate.getMinutes());}
-                else {minOutput = String(currentDate.getMinutes());}    
-                if(currentDate.getHours() > 12){
-                    currentDate.setHours(currentDate.getHours()-12);
-                    dateOutput = currentDate.getHours() + ":" + minOutput+ " pm";
+                let dateOutput: string = "";
+                let seconds:number = Math.floor((currentDate.getTime() - timestamp.getTime()) / 1000);
+                let interval: number  = seconds / 86400;
+                if (interval > 1) {
+                  dateOutput = "Over a day ago"
+                  interval = 0;
+                  seconds = 0;
+                }else{
+                    interval = seconds / 3600;
                 }
-                else if(currentDate.getHours() == 0){
-                    currentDate.setHours(12);
-                    dateOutput = currentDate.getHours() + ":" + minOutput + " am";
+
+                if (interval > 1) {
+                  dateOutput =  Math.floor(interval) + " hours ago";
+                  interval = 0;
+                  seconds = 0;
+                }else{
+                    interval = seconds / 60;
                 }
-                else{
-                    dateOutput = currentDate.getHours() + ":" + minOutput + " am";
+
+                if (interval > 1) {
+                  dateOutput = Math.floor(interval) + " minutes ago";
+                  interval = 0;
+                  seconds = 0;
                 }
+
+                if(seconds > 0)
+                    dateOutput = Math.floor(seconds) + " seconds ago";
+
                 return (
                     <View style={Styles.accordionContainer} key={idx+1}>
                         <List.Accordion
@@ -43,6 +56,8 @@ const listLocations = (data, updateExpanded, isExpanded, currIndex) => {
                             titleStyle={Styles.listAccordionTitle}
                             key={idx+1}
                             style={Styles.listAccordion}
+                            titleNumberOfLines={3}
+                            descriptionNumberOfLines={3}
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
                             expanded = {isExpanded(idx, currIndex)}
                             left={props =>
