@@ -20,8 +20,8 @@ const Map = ({ locations }: any) => {
         }}
         provider="google"
         initialRegion={{
-          latitude: 38.0351,
-          longitude: -78.5040,
+          latitude: 38.0336,
+          longitude: -78.5080,
           latitudeDelta: 0.006,
           longitudeDelta: 0.0003
         }}
@@ -39,13 +39,13 @@ const Map = ({ locations }: any) => {
                       { latitude: item.geo.latitude, longitude: item.geo.longitude }
                     }
                     title={item.name}
-                    
-                  >
-                    <Image
-                      source={require('../assets/space_marker.png')}
-                      style={{height: 43, width: 43}}
-                    />
-                  </Marker>
+                    image={require('../assets/space_marker.png')}
+                    onPress = {() => {
+                      setView(0)
+                      updateExpanded(idx)
+                      }
+                    }
+                  />
                 )
               } else {
                 return (
@@ -55,12 +55,13 @@ const Map = ({ locations }: any) => {
                       { latitude: item.geo.latitude, longitude: item.geo.longitude }
                     }
                     title={item.name}
-                  >
-                    <Image
-                      source={require('../assets/test_marker.png')}
-                      style={{height: 43, width: 43}}
-                    />
-                  </Marker>
+                    image={require('../assets/test_marker.png')}
+                    onPress = {() => {
+                      setView(1)
+                      updateExpanded(idx)
+                    }
+                    }
+                  />
                 )
               }
             }
