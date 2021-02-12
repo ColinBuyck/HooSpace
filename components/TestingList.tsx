@@ -5,7 +5,7 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { progressGraphicColor } from './ProgressGraphicColor'
 
-const listTestSites = ( locations : any) => {
+const listTestSites = (locations, updateExpanded, isExpanded, currIndex) => {
     if(locations){
         return locations.map((item: any, idx: number) => {
             if (item && item.isActive && item.name && item.occupancy && item.servers && item.openingHours && item['@type'] == "CovidTestSite" ) {
@@ -50,6 +50,8 @@ const listTestSites = ( locations : any) => {
                             style={Styles.listAccordion}
                             titleNumberOfLines={3}
                             descriptionNumberOfLines={3}
+                            expanded = {isExpanded(idx, currIndex)}
+                            onPress = {() => updateExpanded(idx)}
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
                             left={props =>
                                 <ProgressCircle
@@ -60,11 +62,16 @@ const listTestSites = ( locations : any) => {
                                 >
                                     <Text style={{ fontSize: 18, fontWeight: "600" }}>{(item.occupancy.value/item.servers.value * 2)}</Text>
                                     <Text style={{ fontSize: 12, textAlign: "center" }}> Minute Wait</Text>
+>>>>>>> components/TestingList.tsx
                                 </ProgressCircle>}
                         >
                             <List.Item title={"Curent line length: " + item.occupancy.value + " people"} style={Styles.listItem}/>
                             {item.occupancy.timestamp && <List.Item title={"Updated: " + dateOutput}/>}
+<<<<<<< components/TestingList.tsx
+                            <List.Item title={"Hours: " + item.openingHours} style={Styles.listItem}/>
+=======
                             <List.Item title={"Hours: " + item.openingHours} titleNumberOfLines={2} style={Styles.listItem}/>
+>>>>>>> components/TestingList.tsx
                         </List.Accordion>
                     </View>
                 )
@@ -73,11 +80,11 @@ const listTestSites = ( locations : any) => {
     }
 }
 
-const TestingList = ({locations}: any) => {
+const TestingList = ({currIndex ,locations, updateExpanded, isExpanded}) => {
     return (
-        <List.AccordionGroup>
-            {listTestSites(locations)}
-        </List.AccordionGroup>
+        <View>
+            {listTestSites(locations, updateExpanded, isExpanded, currIndex)}
+        </View>
     )
 }
 export default TestingList

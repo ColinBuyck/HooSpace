@@ -7,11 +7,12 @@ import { progressGraphicColor } from './ProgressGraphicColor'
 //import changeCenter from './Map';
  //onPress={() => {changeCenter(item.geo)}}
 
-const listLocations = (data: any[]) => {
+const listLocations = (data, updateExpanded, isExpanded, currIndex) => {
     if (data) {
         return data.map((item, idx) => {
             //console.log("item: " + JSON.stringify(item))
             if (item && item.isActive && item.maximumAttendeeCapacity && item.occupancy && item.name && (item.occupancy.timestamp || item.occupancy.timestamp_end)) {
+                //listExpander(idx);
                 let currentDate: Date = new Date();
                 let timestamp: Date = new Date();
                 if(item.occupancy.timestamp){
@@ -59,6 +60,7 @@ const listLocations = (data: any[]) => {
                             titleNumberOfLines={3}
                             descriptionNumberOfLines={3}
                             theme={{ colors: { primary: 'black', backdrop: 'white' }, animation: { scale: 0 } }}
+                            expanded = {isExpanded(idx, currIndex)}
                             left={props =>
                                 <ProgressCircle
                                     percent= {item.isOpenNow ?(item.occupancy.value / item.maximumAttendeeCapacity) * 100 : 0}
@@ -77,6 +79,7 @@ const listLocations = (data: any[]) => {
                                         }
                                     </View>
                                 </ProgressCircle>}
+                            onPress = {() => updateExpanded(idx)}
                         >
 
                             {item.isOpenNow ?
@@ -95,11 +98,18 @@ const listLocations = (data: any[]) => {
     }
 }
 
-const LocationList = ({locations}: any) => {
+const LocationList = ({currIndex ,locations, updateExpanded, isExpanded}) => {
     return (
-        <List.AccordionGroup>
-            {listLocations(locations)}
-        </List.AccordionGroup>
+        <View>
+            {listLocations(locations, updateExpanded, isExpanded, currIndex)}
+        </View>
+        //<List.AccordionGroup 
+        // onAccordionPress = {(expandedID) => 
+        //     {updateExpanded(expandedID)
+        //     alert(currIndex)}
+        //     }
+        //>
+        //</List.AccordionGroup>
     )
 }
 
