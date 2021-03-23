@@ -2,7 +2,7 @@
   "expo": {
     "name": "HooSpace",
     "slug": "HooSpace",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "privacy": "unlisted",
     "orientation": "portrait",
     "icon": "./assets/HooSpaceIcon.png",
@@ -27,7 +27,9 @@
     "android": {
       "package": "com.uva.hoospace",
       "config": {
-        "googleMaps": { "apiKey": "AIzaSyCrNYSvmtLLLs5aizSYOfypCXvAObdqRKw" }   
+        "googleMaps": {
+          "apiKey": "AIzaSyCrNYSvmtLLLs5aizSYOfypCXvAObdqRKw"
+        }
       }
     },
     "web": {
